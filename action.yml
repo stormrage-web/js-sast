@@ -1,0 +1,17 @@
+name: 'js-sast'
+description: 'Static application security testing (for js applications)'
+author: 'stormrage-web'
+inputs:
+  github-token:
+    description: 'This is a token to access github'
+    required: true
+  flag:
+    description: 'This is flag that you can set to true or false'
+    default: false
+    required: false
+runs:
+  using: 'node12'
+  main: 'lib/index.js'
+branding:
+  icon: 'terminal'
+  color: 'blue'
