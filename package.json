@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "build": "ncc build src/main.js -o lib -m"
+    "build": "npm i -g @vercel/ncc && ncc build src/main.js -o lib -m"
   },
   "keywords": [],
   "author": "",
