@@ -7,7 +7,7 @@ jobs:
     steps:
       # 1 шаг необходим, чтобы использовать экшен из соседней папки
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - uses: ./
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
