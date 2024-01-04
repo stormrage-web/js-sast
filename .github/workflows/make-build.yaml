@@ -22,6 +22,8 @@ jobs:
         run: npm run build
 
       - name: "check if build has changed"
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         if: success()
         id: has-changes
         run: echo ::set-env name=LIB_DIFF::$(git diff  --stat -- 'lib') # cause bundle is located in lib folder
