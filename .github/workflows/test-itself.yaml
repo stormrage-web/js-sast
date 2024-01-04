@@ -3,7 +3,7 @@ on:
   push:
 jobs:
   test:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     steps:
       # 1 шаг необходим, чтобы использовать экшен из соседней папки
       - name: Check out repository
