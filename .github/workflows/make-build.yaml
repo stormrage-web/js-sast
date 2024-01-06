@@ -19,7 +19,7 @@ jobs:
         run: npm ci --production
 
       - name: "build"
-        run: npm run build
+        run: npm i -g @vercel/ncc && npm run build
 
       - name: "check if build has changed"
         env:
