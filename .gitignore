@@ -1,2 +1,6 @@
 /node_modules
 /lib
+
+/workspaces/sast/node_modules
+/workspaces/estree-ast-utils/node_modules
+/workspaces/sec-literal/node_modules
