@@ -13,7 +13,6 @@ const kShadyLinkRegExps = [
 
 /**
  * @description Search for Literal AST Node
- * @see https://github.com/estree/estree/blob/master/es5.md#literal
  * @example
  * "foobar"
  */

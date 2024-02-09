@@ -7,7 +7,6 @@ const kIdExtractor = extractNode("Identifier");
 /**
  * @description Search for FunctionDeclaration AST Node.
  *
- * @see https://github.com/estree/estree/blob/master/es5.md#functiondeclaration
  * @example
  * function foo() {}
  */

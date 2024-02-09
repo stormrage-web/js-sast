@@ -1,6 +1,5 @@
 /**
  * @description Search for ESM ImportDeclaration
- * @see https://github.com/estree/estree/blob/master/es2015.md#importdeclaration
  * @example
  * import * as foo from "bar";
  * import fs from "fs";
