@@ -16,7 +16,7 @@ try {
             readFileSync(file, "utf-8")
         );
         // console.log(warnings);
-        if (warnings.length) console.log(chalk.bold(file));
+        if (warnings.length) console.log('\n', chalk.bold(file));
         warnings.map((warning) => {
             switch (warning.severity) {
                 case 'Information':
