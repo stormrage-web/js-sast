@@ -1,36 +1,36 @@
-import {runASTAnalysis, warnings} from "./workspaces/sast/index.js";
+import {runASTAnalysis} from "./workspaces/sast/index.js";
 import {readFileSync} from "node:fs";
 import core from '@actions/core';
 import glob from '@actions/glob';
+import * as i18n from "@nodesecure/i18n";
+import chalk from "chalk";
+
+await i18n.setLocalLang("english");
+await i18n.getLocalLang();
 
 try {
     const patterns = ['**/**.js', '!**/node_modules/**'];
     const globber = await glob.create(patterns.join('\n'))
     for await (const file of globber.globGenerator()) {
-        console.log(file);
-        const {current_warnings, dependencies} = runASTAnalysis(
+        const {warnings} = runASTAnalysis(
             readFileSync(file, "utf-8")
         );
-        console.log(dependencies);
-        console.dir(current_warnings, {depth: null});
+        // console.log(warnings);
+        if (warnings.length) console.log(chalk.bold(file));
+        warnings.map((warning) => {
+            switch (warning.severity) {
+                case 'Information':
+                    console.log(chalk.cyan(`${warning.location[0][0] + 1}:${warning.location[0][1] + 1}:Info`, i18n.getTokenSync(warning.i18n)));
+                    break;
+                case 'Warning':
+                    console.log(chalk.yellow(`${warning.location[0][0] + 1}:${warning.location[0][1] + 1}:Warning`, i18n.getTokenSync(warning.i18n)));
+                    break;
+                case 'Critical':
+                    console.log(chalk.red(`${warning.location[0][0] + 1}:${warning.location[0][1] + 1}:Critical`, i18n.getTokenSync(warning.i18n)));
+                    break;
+            }
+        })
     }
-    // const readFile = util.promisify(fs.readFile)
-    // const contents = await readFile(filePath, 'utf8')
-    // core.info(`File contents:\n${contents}`)
-    // core.setOutput('contents', contents)
 } catch (error) {
     core.setFailed(error.message)
 }
-
-// try {
-//     // `who-to-greet` input defined in action metadata file
-//     const nameToGreet = core.getInput('who-to-greet');
-//     console.log(`Hello ${nameToGreet}!`);
-//     const time = (new Date()).toTimeString();
-//     core.setOutput("time", time);
-//     // Get the JSON webhook payload for the event that triggered the workflow
-//     const payload = JSON.stringify(github.context.payload, undefined, 2)
-//     console.log(`The event payload: ${payload}`);
-// } catch (error) {
-//     core.setFailed(error.message);
-// }
