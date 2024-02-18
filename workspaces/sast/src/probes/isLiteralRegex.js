@@ -4,7 +4,6 @@ import safeRegex from "safe-regex";
 
 /**
  * @description Search for RegExpLiteral AST Node
- * @see https://github.com/estree/estree/blob/master/es5.md#regexpliteral
  * @example
  * /hello/
  */

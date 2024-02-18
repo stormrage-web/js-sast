@@ -4,7 +4,6 @@ import safeRegex from "safe-regex";
 
 /**
  * @description Search for Regex Object constructor.
- * @see https://github.com/estree/estree/blob/master/es5.md#newexpression
  * @example
  * new RegExp("...");
  */
@@ -20,7 +19,6 @@ function main(node, options) {
   const arg = node.arguments[0];
   /**
    * Note: RegExp Object can contain a RegExpLiteral
-   * @see https://github.com/estree/estree/blob/master/es5.md#regexpliteral
    *
    * @example
    * new RegExp(/^foo/)

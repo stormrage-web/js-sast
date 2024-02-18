@@ -1,6 +1,5 @@
 /**
  * @description Search for UnaryExpression AST Node
- * @see https://github.com/estree/estree/blob/master/es5.md#unaryexpression
  * @example
  * -2
  */

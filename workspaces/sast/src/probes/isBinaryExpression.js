@@ -1,7 +1,6 @@
 /**
  * @description Search for BinaryExpression AST Node.
  *
- * @see https://github.com/estree/estree/blob/master/es5.md#binaryexpression
  * @example
  * 5 + 5 + 10
  */

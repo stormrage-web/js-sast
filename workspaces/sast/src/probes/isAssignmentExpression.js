@@ -4,7 +4,6 @@ import { getVariableDeclarationIdentifiers } from "../../../estree-ast-utils/src
 /**
  * @description Search for AssignmentExpression (Not to be confused with AssignmentPattern).
  *
- * @see https://github.com/estree/estree/blob/master/es5.md#assignmentexpression
  * @example
  * (foo = 5)
  */
